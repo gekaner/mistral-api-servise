@@ -29,5 +29,4 @@ def mistral(message):
     if thread.is_alive():
         return None
 
-    time.sleep(30)
     return str(result[0]) if result[0] else None
