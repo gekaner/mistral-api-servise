@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  llm-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEBUG=False
+    volumes:
+      - ./logs:/app/logs
