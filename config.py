@@ -5,6 +5,8 @@ load_dotenv()
 
 # API Configuration
 API_KEY = os.getenv("MISTRAL_API_KEY")
+GPT_API_KEY = os.getenv("GPT_API_KEY")
+PROXY=os.getenv("PROXY")
 
 # FastAPI Configuration
 HOST = os.getenv("HOST", "0.0.0.0")

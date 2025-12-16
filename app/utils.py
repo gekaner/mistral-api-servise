@@ -1,7 +1,10 @@
 import threading
 import time
 from mistralai import Mistral
-from config import API_KEY
+from openai import OpenAI
+from httpx import Client
+import logging
+from config import API_KEY, GPT_API_KEY, PROXY
 
 
 def mistral(message):
@@ -31,3 +34,18 @@ def mistral(message):
 
     time.sleep(30)
     return str(result[0]) if result[0] else None
+
+def gpt(message):
+    http_client = Client(proxy=PROXY)
+
+    client = OpenAI(
+        api_key=GPT_API_KEY,
+        http_client=http_client
+    )
+
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=message
+    )
+
+    return completion.choices[0].message.content

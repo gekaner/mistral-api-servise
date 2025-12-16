@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.models import PromptRequest, LLMResponse, HealthResponse
-from app.utils import mistral
+from app.utils import mistral, gpt
 from config import API_KEY
 
 router = APIRouter()
@@ -32,7 +32,7 @@ async def process_prompt(request: PromptRequest):
         ]
         
         # Отправляем в LLM
-        llm_response = mistral(message)
+        llm_response = gpt(message)
         
         if llm_response is None:
             return LLMResponse(

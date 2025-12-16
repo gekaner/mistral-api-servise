@@ -6,7 +6,6 @@ from config import HOST, PORT, DEBUG
 # Создаем экземпляр FastAPI
 app = FastAPI(
     title="LLM Service",
-    description="Сервис для работы с LLM через Redis промпты",
     version="1.0.0",
     debug=DEBUG
 )
@@ -43,3 +42,4 @@ if __name__ == "__main__":
         port=PORT,
         reload=DEBUG
     )
+д
